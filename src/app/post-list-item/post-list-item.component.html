@@ -1,12 +1,11 @@
-<li
-  [ngClass]="{
+<li [ngClass]="{
     'list-group-item': true,
-    'list-group-item-success': [loveIts]>[dontLoveIts] && loveIts> 0,
-    'list-group-item-danger': [dontLoveIts]>[loveIts] && dontLoveIts> 0
+    'list-group-item-success': [loveIts] > [dontLoveIts] && loveIts > 0,
+    'list-group-item-danger': [dontLoveIts] > [loveIts] && dontLoveIts > 0
   }">
   <h3>
     {{ title }}
-    <span style="position: absolute; right: 20px;">
+    <span style="position: absolute; right: 20px">
       créé le:
       {{ create_at | date: "dd/MM/yyyy à HH:mm:ss" }}
     </span>
