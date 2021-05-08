@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-post-list',
@@ -6,30 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  posts = [
-    {
-      title: "Mon premier post",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-      loveIts: 0,
-      create_at: new Date()
-    },
+  posts: any[] = [];
 
-    {
-      title: "Mon deuxième post",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-      loveIts: 0,
-      create_at: new Date()
-    },
-    {
-      title: "Encore un post",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-      loveIts: 0,
-      create_at: new Date()
-    }
-  ];
-  constructor() { }
+  constructor(private postService : PostsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.posts = this.postService.posts;
   }
 
 }

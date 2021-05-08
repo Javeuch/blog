@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-post-list-item',
@@ -17,7 +18,8 @@ export class PostListItemComponent implements OnInit {
   @Input()
   create_at!: Date;
 
-  constructor() { }
+  /* On injecte le post.service */
+  constructor(private postService:PostsService) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +28,13 @@ export class PostListItemComponent implements OnInit {
   }
   onDontLove() {
     this.dontLoveIts++;
+  }
+
+  /* suppression d'un post */
+  onDeletePost() {
+    /**
+     * TODO: removePost()
+     * this.postsService.removePost(post);
+     */
   }
 }

@@ -14,8 +14,17 @@
   <button class="btn btn-success" (click)="onLove()">Love its!</button>&nbsp;
   <button class="btn btn-danger" (click)="onDontLove()">Don't love its!</button>
 
-  <span style="position: absolute; right: 20px">
-    <button>{{ loveIts }}</button>&nbsp;
-    <button>{{ dontLoveIts }}</button>
+  <span style="float:right">
+        &nbsp;
+          <button>{{ loveIts }}</button>&nbsp;
+          <button>{{ dontLoveIts }}</button>
   </span>
+
+  <!--   Ajout du bouton de suppression du post (class warning: Orange)-->
+  <button
+          type="button" class="btn btn-warning pull-right"
+          (click)="onDeletePost()">Supprimer Post
+  </button>
+
+
 </li>
