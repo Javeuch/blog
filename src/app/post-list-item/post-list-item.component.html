@@ -5,9 +5,9 @@
   }">
   <h3>
     {{ title }}
-    <span style="position: absolute; right: 20px">
+    <span style="position: absolute; right: 20px" >
       créé le:
-      {{ create_at | date: "dd/MM/yyyy à HH:mm:ss" }}
+      {{ createAt | date: "dd/MM/yyyy "}}
     </span>
   </h3>
   <p>{{ content }}</p>
@@ -24,8 +24,8 @@
 
   <!--   Ajout du bouton de suppression du post (class warning: Orange)-->
   <button
-          type="button" class="btn btn-warning pull-right"
+          type="button" class= "btn-warning pull-right"
           (click)="onDeletePost()">Supprimer Post
   </button>
 
-</li>
+</li>&nbsp;

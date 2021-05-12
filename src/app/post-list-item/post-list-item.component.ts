@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '../models/Post.model';
 import { PostsService } from '../services/posts.service';
 
 @Component({
@@ -7,34 +8,37 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./post-list-item.component.scss']
 })
 export class PostListItemComponent implements OnInit {
+
+  post!: Post;
+
   @Input()
-  title!: string;
+  title: string = '';
   @Input()
-  content!: string;
+  content: string = '';
   @Input()
-  loveIts: number=0;
+  loveIts: number = 0;
   @Input()
-  dontLoveIts: number=0;
+  dontLoveIts: number = 0;
   @Input()
-  create_at!: Date;
+  createAt= new Date;
+
 
   /* On injecte le post.service */
-  constructor(private postService:PostsService) { }
+  constructor(private postsService: PostsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
   onLove() {
     this.loveIts++;
   }
+
   onDontLove() {
     this.dontLoveIts++;
   }
 
-  /* suppression d'un post */
+  /* Méthode de suppression d'un post */
   onDeletePost() {
-    /**
-     * TODO: removePost()
-     * this.postsService.removePost(post);
-     */
+    this.postsService.removePost(this.post);
   }
 }

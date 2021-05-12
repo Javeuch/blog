@@ -1,1 +1,31 @@
-<p>new-post works!</p>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <form (ngSubmit)="onSubmit(ceForm)" #ceForm="ngForm">
+
+      <div class="form-group">
+        <label for="title">
+          Titre
+        </label> <!-- j'impose un titre pour le formulaire avec REQUIRED-->
+        <input type="text" id="title" class="form-control" name="title" ngModel required>
+      </div>
+
+      <div class="form-group">
+        <label for="content">
+          Commentaires
+        </label> <!-- j'impose un commentaire pour le formulaire avec REQUIRED -->
+        <textarea id="content" name="content" rows="5" cols="109" ngModel>
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="createAt">
+          Créé le:
+        </label>
+        <input type="date" id="createAt" class="form-control" name="createAt" ngModel>
+      </div>
+
+      <!-- le bouton reste désactivé s'il manque qqch de REQUIRED (le titre) -->
+      <button class="btn btn-primary" type="submit" [disabled]="ceForm.invalid">Enregistrer</button>
+    </form>
+  </div>
+</div>
