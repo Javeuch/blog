@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostService } from './services/post.service';
 import { RouterModule, Routes } from '@angular/router';
-import{HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 /* Constante de routage de type Routes */
 const appRoutes: Routes = [

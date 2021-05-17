@@ -4,9 +4,9 @@ import { Post } from '../models/Post.model';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-post-list',
+  selector   : 'app-post-list',
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.scss']
+  styleUrls  : ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit, OnDestroy {
 
