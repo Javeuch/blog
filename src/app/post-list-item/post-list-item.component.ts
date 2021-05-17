@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '../models/Post.model';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-post-list-item',
@@ -6,25 +8,33 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./post-list-item.component.scss']
 })
 export class PostListItemComponent implements OnInit {
-  @Input()
-  title!: string;
-  @Input()
-  content!: string;
-  @Input()
-  loveIts: number=0;
-  @Input()
-  dontLoveIts: number=0;
-  @Input()
-  create_at!: Date;
 
-  constructor() { }
+  @Input() title: string;
+  @Input() content: string;
+  @Input() createAt: Date;
+  @Input() loveIts: number;
+  @Input() post: Post;
 
-  ngOnInit(): void {
-  }
-  onLove() {
+  constructor(private postService: PostService) { }
+
+  ngOnInit() { }
+
+  onLoveIt() {
     this.loveIts++;
+    this.post.loveIts = this.loveIts;
+    this.postService.savePosts();
   }
-  onDontLove() {
-    this.dontLoveIts++;
+
+  onDontLoveIt() {
+    this.loveIts--;
+    this.post.loveIts = this.loveIts;
+    this.postService.savePosts();
+  }
+
+  onDeletePost(post: Post) {
+    const confirmation = confirm('Voulez-vous supprimer ce post?');
+    if (confirmation) {
+      this.postService.removePost(post);
+    }
   }
 }

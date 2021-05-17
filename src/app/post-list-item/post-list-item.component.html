@@ -1,22 +1,21 @@
-<li
-  [ngClass]="{
-    'list-group-item': true,
-    'list-group-item-success': [loveIts]>[dontLoveIts] && loveIts> 0,
-    'list-group-item-danger': [dontLoveIts]>[loveIts] && dontLoveIts> 0
+<li [ngClass]="{
+    'list-group-item'        : true,
+    'list-group-item-success': loveIts > 0,
+    'list-group-item-danger' : loveIts < 0
   }">
-  <h3>
-    {{ title }}
+  <h1> {{ title }}
     <span style="position: absolute; right: 20px;">
       créé le:
-      {{ create_at | date: "dd/MM/yyyy à HH:mm:ss" }}
+      {{ createAt | date: "dd/MM/yyyy à HH:mm:ss" }}
     </span>
-  </h3>
-  <p>{{ content }}</p>
-  <button class="btn btn-success" (click)="onLove()">Love its!</button>&nbsp;
-  <button class="btn btn-danger" (click)="onDontLove()">Don't love its!</button>
+  </h1>
 
-  <span style="position: absolute; right: 20px">
-    <button>{{ loveIts }}</button>&nbsp;
-    <button>{{ dontLoveIts }}</button>
-  </span>
+  <h3> {{ content }}</h3>
+
+  <button class="btn btn-success" (click)="onLoveIt()">Love its!</button>
+  &nbsp;
+  <button class="btn btn-danger" (click)="onDontLoveIt()">Don't love its!</button>
+  &nbsp;
+  <button class="btn btn-warning pull-right" (click)="onDeletePost(post)">Supprimer</button>
 </li>
+&nbsp;
